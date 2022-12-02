@@ -2,8 +2,8 @@
 
 Team:
 
-* Marison - Which microservice?
-* Brian - Which microservice?
+* Marison - shoes
+* Brian - hats
 
 ## Design
 
