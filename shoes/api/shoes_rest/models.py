@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class BinVO(models.Model):
@@ -19,3 +20,5 @@ class Shoe(models.Model):
         on_delete=models.CASCADE, null=True,
         blank=True,
     )
+    def get_api_url(self):
+        return reverse("api_show_shoe", kwargs={"pk": self.pk})

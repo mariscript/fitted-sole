@@ -6,6 +6,15 @@ from .models import Shoe, BinVO
 import json
 
 # Create your views here.
+
+class BinVOEncoder(ModelEncoder):
+    model = BinVO
+    properties = [
+        "closet_name",
+        "bin_number",
+        "import_href"]
+
+
 class ShoeListEncoder(ModelEncoder):
     model = Shoe
     properties = [
@@ -18,6 +27,38 @@ class ShoeListEncoder(ModelEncoder):
 
     def get_extra_data(self, o):
         return {"bin": o.bin.closet_name}
+
+        
+class ShoeDetailEncoder(ModelEncoder):
+    model = Shoe
+    properties = [
+        "manufacturer",
+        "model_name",
+        "color",
+        "picture_url",
+        "id",
+        "bin",
+    ]
+    encoders = {
+        "bin": BinVOEncoder(),
+    }
+
+    def get_extra_data(self, o):
+        return {"bin": o.bin.closet_name}
+
+
+@require_http_methods(["GET"])
+def api_list_binvo(request):
+    """
+    List the Bin value objects from the poller
+    """
+
+    if request.method == "GET":
+        binsvo = BinVO.objects.all()
+        return JsonResponse(
+            {"binsvo": binsvo},
+            encoder=BinVOEncoder,
+        )
 
 
 @require_http_methods(["GET", "POST"])
@@ -50,18 +91,6 @@ def api_list_shoes(request, bin_vo_id=None):
             safe=False,
         )
 
-
-class ShoeDetailEncoder(ModelEncoder):
-    model = Shoe
-    properties = [
-        "manufacturer",
-        "model_name",
-        "color",
-        "picture_url",
-    ]
-
-    def get_extra_data(self, o):
-        return {"bin": o.bin.closet_name}
 
 
 @require_http_methods(["DELETE", "GET", "PUT"])
