@@ -49,10 +49,10 @@ function ShoesList() {
             <thead>
             <tr>
                 <th>Manufacturer</th>
-                <th>Model Name</th>
-                <th>Shoe Color</th>
-                <th>Shoe Picture</th>
-                <th>Bins</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Picture</th>
+                <th>Bin</th>
             </tr>
             </thead>
             <tbody>

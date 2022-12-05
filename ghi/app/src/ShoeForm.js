@@ -112,7 +112,7 @@ class ShoeForm extends React.Component {
                     {this.state.bins.map(bin => {
                             return (
                                 <option key={bin.href} value={bin.href}>
-                                    Closet: {bin.closet_name}, Bin: {bin.bin_number}
+                                    Closet: {bin.closet_name}, Bin #{bin.bin_number}
                                 </option>
                             );
                         })}
