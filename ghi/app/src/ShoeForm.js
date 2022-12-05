@@ -10,7 +10,7 @@ class ShoeForm extends React.Component {
             color: '',
             picture_url: '',
             bins: [],
-            successCreate: false
+            create: false
 
         }
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -28,7 +28,7 @@ class ShoeForm extends React.Component {
         event.preventDefault();
         const data = {...this.state};
         delete data.bins;
-        delete data.successCreate;
+        delete data.create;
 
         const ShoeUrl = 'http://localhost:8080/api/shoes/';
         const fetchConfig = {
@@ -48,7 +48,7 @@ class ShoeForm extends React.Component {
                 color: '',
                 picture_url: '',
                 bin: '',
-                successCreate: true,
+                create: true,
             };
             this.setState(cleared);
         }
@@ -70,7 +70,7 @@ class ShoeForm extends React.Component {
     
     render() {
         let successClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
-        if (this.state.successCreate) {
+        if (this.state.create) {
             successClassName = 'alert alert-success mb-0 mt-5 text-center';
         }
 
@@ -78,7 +78,7 @@ class ShoeForm extends React.Component {
             <div className="row">
             <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
-                <h1>Add A Shoe to Your Closet</h1>
+                <h1>Add A New Shoe</h1>
                 <form onSubmit={this.handleSubmit} id="create-shoe-form">
                 <div className="form-floating mb-3">
                     <input onChange={this.handleInputChange} value={this.state.manufacturer} 

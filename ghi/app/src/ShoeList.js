@@ -1,117 +1,82 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import App from './App';
-import { Link } from 'react-router-dom';
+import {useState} from 'react'
 
-function ShoeDetails(props) {
-    const handleClick = async shoeUrl => {
-        const url = "http://localhost:8080" + shoeUrl;
-        const fetchConfig = {method: "delete"}
-        const response = await fetch(url, fetchConfig)
-        if(response.ok) {
-            window.location.reload()
-        }
+
+function ShoesList() {
+    const [shoes, setShoes] = useState([])
+
+    const fetchShoes = async () => {
+        const url = 'http://localhost:8080/api/shoes/'
+        const res = await fetch(url)
+        const shoesJSON = await res.json()
+        setShoes(shoesJSON.shoes)
     }
-        return (
-      <div className="col">
-        {props.list.map(data => {
-          const shoe = data;
-          return (
-            <div key={shoe.href} className="card mb-3 shadow">
-              <img src={shoe.picture_url} className="card-img-top" />
-              <div className="card-body">
-                <h5 className="card-title text-center">{shoe.manufacturer} {shoe.model_name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted text-center">
-                    Closet: {shoe.bin.closet_name}, Section: {shoe.bin.bin_number}
-                </h6>
-                <p className="card-text text-center">
-                    Color: {shoe.color}
-                </p>
-              </div>
-              <div className="card-footer text-center" >
-                <button onClick={() => { handleClick(shoe.href) }}>Delete</button>
-              </div>
+    useEffect(() => {
+        fetchShoes()
+    }, [])
+
+    function handleDelete(id) {
+        const url = `http://localhost:8080/api/shoes/${id}/`
+        const fetchConfig = {method: 'DELETE'}
+        const response = fetch(url, fetchConfig)
+        setShoes(shoes.filter(
+            function(shoe) {
+                return shoe.id !== id;
+            }
+        ))
+        // find hat by id and remove from shoes array
+    }
+
+
+    return (
+      <div className="px-4 py-5 my-5 mt-0 text-center">
+      <img className="bg-white rounded shadow d-block mx-auto mb-4" src="https://i.pinimg.com/originals/bb/5b/c7/bb5bc707574c35e401a97d1c323163e7.jpg" alt="" width="600" />
+      <h1 className="display-5 fw-bold">Shoes</h1>
+      <div className="col-lg-6 mx-auto">
+            <p className="lead mb-4">
+              The only resource you'll ever need to virtually organize all your shoes!
+            </p>
+            <div className="d-grid gap-4 d-sm-flex justify-content-sm-center">
+              <a href="/shoes/new" className="btn btn-info btn-lg px-4 gap-3">Add New Shoes to Your Closet</a>
             </div>
-          );
-        })}
+            </div>
+            <div className="container mt-5">
+            <h2 className="text-center">Shoe Collection</h2>
+            </div>
+            <div className="row">
+        <table className="table table-striped">
+            <thead>
+            <tr>
+                <th>Manufacturer</th>
+                <th>Model Name</th>
+                <th>Shoe Color</th>
+                <th>Shoe Picture</th>
+                <th>Bins</th>
+            </tr>
+            </thead>
+            <tbody>
+            {shoes.map(shoe => {
+                return (
+                <tr key={shoe.id}>
+                    <td>{ shoe.manufacturer }</td>
+                    <td>{ shoe.model_name }</td>
+                    <td>{ shoe.color }</td>
+                    <td>
+                    <img src={shoe.picture_url} className="" alt= "..." width="100" height="100"></img>
+                    </td>
+                    <td>{ shoe.bin }</td>
+                    <td><button variant="outline-danger" onClick={() => handleDelete(shoe.id)}>Delete</button></td>
+                </tr>
+                );
+            })}
+            </tbody>
+        </table>
+        </div>
       </div>
     );
-  }
-  
-
-class ShoeList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        shoeColumns: [[], [], []],
-    };
-  }
-
-  async componentDidMount() {
-    const url = 'http://localhost:8080/api/shoes/';
-
-    try {
-      const response = await fetch(url);
-      if (response.ok) {
-
-        const data = await response.json();
-        console.log(data)
-        const requests = [];
-        for (let shoe of data.shoes) {
-          const detailUrl = `http://localhost:8080${shoe.href}`;
-          requests.push(fetch(detailUrl));
-        }
-        const responses = await Promise.all(requests);
-        const shoeDetails = [[], [], []];
-        let i = 0;
-        for (const shoeResponse of responses) {
-          if (shoeResponse.ok) {
-            const details = await shoeResponse.json();
-            shoeDetails[i].push(details);
-            i = i + 1;
-            if (i > 2) {
-              i = 0;
-            }
-          } else {
-            console.error(shoeResponse);
-          }
-        }
-
-        this.setState({shoeDetails: shoeDetails});
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  render() {
-    return (
-      <>
-        <div className="px-4 py-5 my-5 mt-0 text-center">
-          <img className="bg-white rounded shadow d-block mx-auto mb-4" src="https://i.pinimg.com/originals/bb/5b/c7/bb5bc707574c35e401a97d1c323163e7.jpg" alt="" width="600" />
-          <h1 className="display-5 fw-bold">Shoes</h1>
-          <div className="col-lg-6 mx-auto">
-            <p className="lead mb-4">
-              The only resource you'll ever need to virtually organize all of your shoes!
-            </p>
-            <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-              <Link to="/shoes/new" className="btn btn-info btn-lg px-4 gap-3">Add New Shoes to Your Closet</Link>
-            </div>
-          </div>
-        </div>
-        <div className="container">
-          <h2 className="text-center">Shoe Collection</h2>
-          <div className="row">
-            {this.state.shoeDetails.map((shoeList, index) => {
-              return (
-                <ShoeDetails key={index} list={shoeList} />
-              );
-            })}
-          </div>
-        </div>
-      </>
-    );
-  }
 }
 
-export default ShoeList;
+export default ShoesList;
+
 
