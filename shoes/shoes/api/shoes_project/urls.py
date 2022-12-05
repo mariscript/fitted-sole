@@ -1,4 +1,4 @@
-"""hats_project URL Configuration
+"""shoes_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('hats_rest.urls')),
+    path('api/', include('shoes_rest.urls')),
 ]
