@@ -1,5 +1,4 @@
-import React from "react"
-import { Link } from 'react-router-dom';
+import React from "react";
 
 class HatsForm extends React.Component {
     constructor(props) {
@@ -9,8 +8,8 @@ class HatsForm extends React.Component {
             style_name: "",
             color: "",
             pic_url: "",
-            location: "",
             locations: [],
+            create:false,
         }
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,8 +25,9 @@ class HatsForm extends React.Component {
         event.preventDefault();
         const data = {...this.state};
         delete data.locations;
-        const url = 'http://localhost:8000/api/hats/'
+        delete data.create;
 
+        const url = 'http://localhost:8000/api/hats/'
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
@@ -45,6 +45,7 @@ class HatsForm extends React.Component {
                 color: "",
                 pic_url: "",
                 location: "",
+                create: true,
             };
             this.setState(cleared);
         }
@@ -63,9 +64,9 @@ class HatsForm extends React.Component {
     }
 
     render() {
-        let successClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
-        if (this.state.successCreate) {
-            successClassName = 'alert alert-success mb-0 mt-5 text-center';
+        let createClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
+        if (this.state.create) {
+            createClassName = 'alert alert-success mb-0 mt-5 text-center';
         }
 
         return (
@@ -105,7 +106,7 @@ class HatsForm extends React.Component {
                     {this.state.locations.map(location => {
                             return (
                                 <option key={location.href} value={location.href}>
-                                    Closet: {location.closet_name}, Location: {location.location_number}
+                                    Closet: {location.closet_name}, Section: {location.section_number}, Shelf: {location.shelf_number}
                                 </option>
                             );
                         })}
@@ -113,7 +114,7 @@ class HatsForm extends React.Component {
                 </div>
                 <button className="btn btn-info">Create</button>
                 </form>
-                <div className={successClassName} id="success-message">
+                <div className={createClassName} id="success-message">
                     You Added A Hat to Your Closet!
                 </div>
             </div>

@@ -17,5 +17,4 @@ To create the shoes microservice, I referred to the Bin model in the Wardrobe mi
 
 ## Hats microservice
 
-Explain your models and integration with the wardrobe
-microservice, here.
+We created VOs to integrate with the wardrobe microservice. I added the location VO model to the hats microservice and imported from hats_rest.models into the hats poller.py file to loop over all locations in the list of JSON data and create or update location objects in the VO.

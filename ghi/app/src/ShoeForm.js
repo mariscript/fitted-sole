@@ -15,7 +15,7 @@ class ShoeForm extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    
+
     handleInputChange(event) {
         const value = event.target.value
         this.setState({[event.target.id]: value})
@@ -37,7 +37,7 @@ class ShoeForm extends React.Component {
                 'Content-Type': 'application/json',
             },
         };
-        
+
         const response = await fetch(ShoeUrl, fetchConfig);
         if (response.ok) {
             const newShoe = await response.json();
@@ -53,21 +53,21 @@ class ShoeForm extends React.Component {
             this.setState(cleared);
         }
     };
-    
+
 
 
 
     async componentDidMount() {
         const url = 'http://localhost:8100/api/bins/';
-    
+
         const response = await fetch(url);
-    
+
         if (response.ok) {
             const data = await response.json();
             this.setState({bins: data.bins})
         };
     }
-    
+
     render() {
         let createClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
         if (this.state.create) {
@@ -81,31 +81,31 @@ class ShoeForm extends React.Component {
                 <h1>Add A New Shoe</h1>
                 <form onSubmit={this.handleSubmit} id="create-shoe-form">
                 <div className="form-floating mb-3">
-                    <input onChange={this.handleInputChange} value={this.state.manufacturer} 
-                    placeholder="Manufacturer" required type="text" name="manufacturer" id="manufacturer" 
+                    <input onChange={this.handleInputChange} value={this.state.manufacturer}
+                    placeholder="Manufacturer" required type="text" name="manufacturer" id="manufacturer"
                     className="form-control"/>
                     <label htmlFor="manufacturer">Manufacturer</label>
                 </div>
                 <div className="form-floating mb-3">
-                    <input onChange={this.handleInputChange} value={this.state.model_name} 
-                    placeholder="Model_name" required type="text" name="model_name" id="model_name" 
+                    <input onChange={this.handleInputChange} value={this.state.model_name}
+                    placeholder="Model_name" required type="text" name="model_name" id="model_name"
                     className="form-control"/>
                     <label htmlFor="model_name">Style Name</label>
                 </div>
                 <div className="form-floating mb-3">
-                    <input onChange={this.handleInputChange} value={this.state.color} 
-                    placeholder="Color" required type="text" name="color" id="color" 
+                    <input onChange={this.handleInputChange} value={this.state.color}
+                    placeholder="Color" required type="text" name="color" id="color"
                     className="form-control"/>
                     <label htmlFor="color">Color</label>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="picture_url" className="form-label">Picture Url</label>
-                    <textarea onChange={this.handleInputChange} value={this.state.picture_url} 
-                    required type="text" name="picture_url" id="picture_url" 
+                    <textarea onChange={this.handleInputChange} value={this.state.picture_url}
+                    required type="text" name="picture_url" id="picture_url"
                     className="form-control" rows="3"></textarea>
                 </div>
                 <div className="mb-3">
-                    <select onChange={this.handleInputChange} value={this.state.bin} 
+                    <select onChange={this.handleInputChange} value={this.state.bin}
                     required name="bin" id="bin" className="form-select">
                     <option value="">Choose a Bin</option>
                     {this.state.bins.map(bin => {
