@@ -7,6 +7,7 @@ class LocationForm extends React.Component {
       closetName: "",
       sectionNumber: "",
       shelfNumber: "",
+      create: false,
     };
     this.handleClosetNameChange = this.handleClosetNameChange.bind(this);
     this.handleSectionNumberChange = this.handleSectionNumberChange.bind(this);
@@ -38,6 +39,7 @@ class LocationForm extends React.Component {
     delete data.closetName;
     delete data.sectionNumber;
     delete data.shelfNumber;
+    delete data.create;
     console.log(data);
 
     const locationUrl = "http://localhost:8100/api/locations/";
@@ -57,6 +59,7 @@ class LocationForm extends React.Component {
         closetName: "",
         sectionNumber: "",
         shelfNumber: "",
+        create: true,
       };
       this.setState(cleared);
     }
@@ -65,6 +68,10 @@ class LocationForm extends React.Component {
 
 
   render() {
+    let createClassName = 'alert alert-success d-none mb-0 text-center';
+    if (this.state.create) {
+      createClassName = 'alert alert-success mb-0 mt-5 text-center'
+    }
     return (
       <div className="container">
         <div className="row">
@@ -113,6 +120,9 @@ class LocationForm extends React.Component {
                 </div>
                 <button className="btn btn-primary">Create</button>
               </form>
+              <div className={createClassName} id="success-message">
+                    You Added A Location to Your Closet!
+                </div>
             </div>
           </div>
         </div>

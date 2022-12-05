@@ -124,7 +124,7 @@ def api_location(request, pk):
             )
         except Location.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
-    else: # PUT
+    else:
         try:
             content = json.loads(request.body)
             location = Location.objects.get(id=pk)
@@ -143,6 +143,8 @@ def api_location(request, pk):
             response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
             return response
+
+
 
 
 @require_http_methods(["GET", "POST"])
