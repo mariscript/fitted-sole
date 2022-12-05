@@ -87,7 +87,7 @@ class LocationForm extends React.Component {
                 </div>
                 <div className="form-floating mb-3">
                   <input
-                    onChange={this.handlesectionNumberChange}
+                    onChange={this.handleSectionNumberChange}
                     value={this.state.sectionNumber}
                     placeholder="Section Number"
                     required
@@ -101,7 +101,7 @@ class LocationForm extends React.Component {
                 <div className="form-floating mb-3">
                   <input
                     onChange={this.handleShelfNumberChange}
-                    value={this.state.sectionNumber}
+                    value={this.state.shelfNumber}
                     placeholder="Shelf Number"
                     required
                     type="number"
