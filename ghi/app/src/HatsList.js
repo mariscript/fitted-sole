@@ -13,7 +13,7 @@ function HatsList() {
         setHats(hatsJSON.hats)
     }
     useEffect(() => {
-        fetchHats()
+        fetchHat()
     }, [])
 
     function handleDelete(id) {

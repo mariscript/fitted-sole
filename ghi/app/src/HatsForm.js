@@ -18,7 +18,7 @@ class HatsForm extends React.Component {
 
     handleInputChange(event) {
         const value = event.target.value
-        this.setState({[event.target.id]:})
+        this.setState({[event.target.id]: value})
     }
 
 
@@ -34,9 +34,9 @@ class HatsForm extends React.Component {
             headers: {
                 'Content-Type': 'application/json'
             }
-        },
+        }
 
-        const response = await fetch(url, fetchConfig):
+        const response = await fetch(url, fetchConfig);
         if (response.ok) {
             const newHat = await response.json();
             const cleared = {
