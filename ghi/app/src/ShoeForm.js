@@ -38,6 +38,7 @@ class ShoeForm extends React.Component {
                 'Content-Type': 'application/json',
             },
         };
+        
         const response = await fetch(ShoeUrl, fetchConfig);
         if (response.ok) {
             const newShoe = await response.json();
@@ -69,9 +70,9 @@ class ShoeForm extends React.Component {
     }
     
     render() {
-        let successClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
+        let createClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
         if (this.state.create) {
-            successClassName = 'alert alert-success mb-0 mt-5 text-center';
+            createClassName = 'alert alert-success mb-0 mt-5 text-center';
         }
 
         return (
@@ -119,7 +120,7 @@ class ShoeForm extends React.Component {
                 </div>
                 <button className="btn btn-info">Create</button>
                 </form>
-                <div className={successClassName} id="success-message">
+                <div className={createClassName} id="success-message">
                     You Added A Shoe to Your Closet!
                 </div>
             </div>
