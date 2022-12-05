@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import App from './App';
 import {useState} from 'react'
 
 
@@ -25,17 +24,16 @@ function ShoesList() {
                 return shoe.id !== id;
             }
         ))
-        // find hat by id and remove from shoes array
     }
 
 
     return (
       <div className="px-4 py-5 my-5 mt-0 text-center">
-      <img className="bg-white rounded shadow d-block mx-auto mb-4" src="https://i.pinimg.com/originals/bb/5b/c7/bb5bc707574c35e401a97d1c323163e7.jpg" alt="" width="600" />
+      <img className="bg-white rounded shadow d-block mx-auto mb-4" src="https://cdn.dribbble.com/users/377441/screenshots/1683660/comp-1.gif" alt="" width="600" />
       <h1 className="display-5 fw-bold">Shoes</h1>
       <div className="col-lg-6 mx-auto">
             <p className="lead mb-4">
-              The only resource you'll ever need to virtually organize all your shoes!
+              The only resource you'll ever need to virtually organize your shoes!
             </p>
             <div className="d-grid gap-4 d-sm-flex justify-content-sm-center">
               <a href="/shoes/new" className="btn btn-info btn-lg px-4 gap-3">Add New Shoes to Your Closet</a>

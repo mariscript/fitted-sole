@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class ShoeForm extends React.Component {
     constructor(props){
@@ -124,6 +123,7 @@ class ShoeForm extends React.Component {
                     You Added A Shoe to Your Closet!
                 </div>
             </div>
+            <img src="https://www.carlaehlers.com/images/work/sneakerheads/GIF3.gif" className="img-fluid img-thumbnail"></img>
             </div>
         </div>
         );

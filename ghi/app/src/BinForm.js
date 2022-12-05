@@ -124,6 +124,7 @@ class BinForm extends React.Component {
                     You Added A Bin to Your Closet!
                 </div>
             </div>
+             <img src="https://cdn.dribbble.com/users/2258871/screenshots/4539724/shoebox_dribbble.gif" className="img-fluid img-thumbnail"></img>
           </div>
         </div>
       </div>
