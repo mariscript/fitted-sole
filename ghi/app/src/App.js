@@ -7,6 +7,7 @@ import BinForm from './BinForm';
 import HatsForm from './HatsForm';
 import HatsList from './HatsList';
 import LocationForm from './LocationForm';
+import './index.css';
 
 
 function App() {

@@ -28,6 +28,7 @@ function ShoesList() {
     }
 
 
+
     return (
       <div className="px-4 py-5 my-5 mt-0 text-center">
       <img className="bg-white rounded shadow d-block mx-auto mb-4" src="https://cdn.dribbble.com/users/377441/screenshots/1683660/comp-1.gif" alt="" width="600" />
@@ -62,10 +63,11 @@ function ShoesList() {
                     <td>{ shoe.model_name }</td>
                     <td>{ shoe.color }</td>
                     <td>
-                    <img src={shoe.picture_url} className="" alt= "..." width="100" height="100"></img>
+                    <img src={shoe.picture_url} alt="picture of specific shoe" width="125" height="100"></img>
                     </td>
                     <td>{ shoe.bin }</td>
-                    <td><button class="btn btn-secondary">Update</button></td>
+
+                    <td><button class="btn btn-secondary">Edit</button></td>
                     <td><button class="btn btn-danger" onClick={() => handleDelete(shoe.id)}>Delete</button></td>
                 </tr>
                 );
