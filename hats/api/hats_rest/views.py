@@ -91,7 +91,7 @@ def list_hats(request, location_vo_id=None):
 
 
 @require_http_methods(["DELETE", "GET", "PUT"])
-def api_show_hats(request, pk):
+def show_hats(request, pk):
     if request.method == "GET":
         try:
             hats = Hat.objects.get(id=pk)
@@ -101,7 +101,7 @@ def api_show_hats(request, pk):
                 safe=False,
             )
         except Hat.DoesNotExist:
-            response = JsonResponse({"message": "Does not exists"})
+            response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
             return response
     elif request.method == "DELETE":
@@ -117,4 +117,4 @@ def api_show_hats(request, pk):
             return JsonResponse(
                 {"message":"Hat does not exist"},
                 status=400,
-                )
+            )

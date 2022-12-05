@@ -5,12 +5,12 @@ class LocationForm extends React.Component {
     super(props);
     this.state = {
       closetName: "",
-      locationNumber: "",
-      locationSize: "",
+      sectionNumber: "",
+      shelfNumber: "",
     };
     this.handleClosetNameChange = this.handleClosetNameChange.bind(this);
-    this.handleLocationNumberChange = this.handleLocationNumberChange.bind(this);
-    this.handleLocationSizeChange = this.handleLocationSizeChange.bind(this);
+    this.handleSectionNumberChange = this.handleSectionNumberChange.bind(this);
+    this.handleShelfNumberChange = this.handleShelfNumberChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -19,25 +19,25 @@ class LocationForm extends React.Component {
     this.setState({ closetName: value });
   }
 
-  handleLocationNumberChange(event) {
+  handleSectionNumberChange(event) {
     const value = event.target.value;
-    this.setState({ locationNumber: value });
+    this.setState({ sectionNumber: value });
   }
 
-  handleLocationSizeChange(event) {
+  handleShelfNumberChange(event) {
     const value = event.target.value;
-    this.setState({ locationSize: value });
+    this.setState({ shelfNumber: value });
   }
 
   async handleSubmit(event) {
     event.preventDefault();
     const data = { ...this.state };
     data.closet_name = data.closetName;
-    data.location_number = data.locationNumber;
-    data.location_size= data.locationSize;
+    data.section_number = data.sectionNumber;
+    data.shelf_number= data.shelfNumber;
     delete data.closetName;
-    delete data.locationNumber;
-    delete data.locationSize;
+    delete data.sectionNumber;
+    delete data.shelfNumber;
     console.log(data);
 
     const locationUrl = "http://localhost:8100/api/locations/";
@@ -55,8 +55,8 @@ class LocationForm extends React.Component {
 
       const cleared = {
         closetName: "",
-        locationNumber: "",
-        locationSize: "",
+        sectionNumber: "",
+        shelfNumber: "",
       };
       this.setState(cleared);
     }
@@ -87,29 +87,29 @@ class LocationForm extends React.Component {
                 </div>
                 <div className="form-floating mb-3">
                   <input
-                    onChange={this.handlelocationNumberChange}
-                    value={this.state.locationNumber}
-                    placeholder="Location Number"
+                    onChange={this.handlesectionNumberChange}
+                    value={this.state.sectionNumber}
+                    placeholder="Section Number"
                     required
                     type="number"
-                    name="location_number"
-                    id="location_number"
+                    name="section_number"
+                    id="section_number"
                     className="form-control"
                   />
-                  <label htmlFor="room_count">Location Number</label>
+                  <label htmlFor="room_count">Section Number</label>
                 </div>
                 <div className="form-floating mb-3">
                   <input
-                    onChange={this.handleLocationSizeChange}
-                    value={this.state.locationSize}
-                    placeholder="Location Size"
+                    onChange={this.handleShelfNumberChange}
+                    value={this.state.sectionNumber}
+                    placeholder="Shelf Number"
                     required
                     type="number"
-                    name="location_size"
-                    id="location_size"
+                    name="shelf_number"
+                    id="shelf_number"
                     className="form-control"
                   />
-                  <label htmlFor="Location Size">Location Size</label>
+                  <label htmlFor="Shelf Number">Shelf Number</label>
                 </div>
                 <button className="btn btn-primary">Create</button>
               </form>
