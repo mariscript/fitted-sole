@@ -80,7 +80,7 @@ def api_list_shoes(request, bin_vo_id=None):
             content["bin"] = bin
         except BinVO.DoesNotExist:
             return JsonResponse(
-                {"message": "Invalid bin id"},
+                {"message": "Bin does not exist"},
                 status=400,
             )
         

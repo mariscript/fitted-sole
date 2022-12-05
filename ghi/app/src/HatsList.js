@@ -31,7 +31,7 @@ function HatsList() {
 
     return (
       <div className="px-4 py-5 my-5 mt-0 text-center">
-      <img className="bg-white rounded shadow d-block mx-auto mb-4" src="https://i.pinimg.com/originals/bb/5b/c7/bb5bc707574c35e401a97d1c323163e7.jpg" alt="" width="600" />
+      <img className="bg-white rounded shadow d-block mx-auto mb-4" src="https://cdn.theathletic.com/app/uploads/2021/05/26001329/Cardinals.gif" alt="" width="600" />
       <h1 className="display-5 fw-bold">Hats</h1>
       <div className="col-lg-6 mx-auto">
             <p className="lead mb-4">
