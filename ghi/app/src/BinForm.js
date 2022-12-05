@@ -7,6 +7,7 @@ class BinForm extends React.Component {
       closetName: "",
       binNumber: "",
       binSize: "",
+      create: false
     };
     this.handleClosetNameChange = this.handleClosetNameChange.bind(this);
     this.handleBinNumberChange = this.handleBinNumberChange.bind(this);
@@ -38,9 +39,10 @@ class BinForm extends React.Component {
     delete data.closetName;
     delete data.binNumber;
     delete data.binSize;
+    delete data.create;
     console.log(data);
 
-    const binUrl = "http://localhost:8100/api/bins/";
+    const BinUrl = "http://localhost:8100/api/bins/";
     const fetchConfig = {
       method: "post",
       body: JSON.stringify(data),
@@ -48,7 +50,7 @@ class BinForm extends React.Component {
         "Content-Type": "application/json",
       },
     };
-    const response = await fetch(binUrl, fetchConfig);
+    const response = await fetch(BinUrl, fetchConfig);
     if (response.ok) {
       const newBin = await response.json();
       console.log(newBin);
@@ -57,6 +59,7 @@ class BinForm extends React.Component {
         closetName: "",
         binNumber: "",
         binSize: "",
+        create: true,
       };
       this.setState(cleared);
     }
@@ -65,6 +68,10 @@ class BinForm extends React.Component {
 
 
   render() {
+    let createClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
+    if (this.state.create) {
+        createClassName = 'alert alert-success mb-0 mt-5 text-center';
+    }
     return (
       <div className="container">
         <div className="row">
@@ -113,7 +120,11 @@ class BinForm extends React.Component {
                 </div>
                 <button className="btn btn-primary">Create</button>
               </form>
+              <div className={createClassName} id="success-message">
+                    You Added A Bin to Your Closet!
+                </div>
             </div>
+             <img src="https://cdn.dribbble.com/users/2258871/screenshots/4539724/shoebox_dribbble.gif" className="img-fluid img-thumbnail"></img>
           </div>
         </div>
       </div>

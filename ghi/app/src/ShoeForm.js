@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class ShoeForm extends React.Component {
     constructor(props){
@@ -10,7 +9,7 @@ class ShoeForm extends React.Component {
             color: '',
             picture_url: '',
             bins: [],
-            successCreate: false
+            create: false
 
         }
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -28,7 +27,7 @@ class ShoeForm extends React.Component {
         event.preventDefault();
         const data = {...this.state};
         delete data.bins;
-        delete data.successCreate;
+        delete data.create;
 
         const ShoeUrl = 'http://localhost:8080/api/shoes/';
         const fetchConfig = {
@@ -38,6 +37,7 @@ class ShoeForm extends React.Component {
                 'Content-Type': 'application/json',
             },
         };
+        
         const response = await fetch(ShoeUrl, fetchConfig);
         if (response.ok) {
             const newShoe = await response.json();
@@ -48,7 +48,7 @@ class ShoeForm extends React.Component {
                 color: '',
                 picture_url: '',
                 bin: '',
-                successCreate: true,
+                create: true,
             };
             this.setState(cleared);
         }
@@ -69,16 +69,16 @@ class ShoeForm extends React.Component {
     }
     
     render() {
-        let successClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
-        if (this.state.successCreate) {
-            successClassName = 'alert alert-success mb-0 mt-5 text-center';
+        let createClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
+        if (this.state.create) {
+            createClassName = 'alert alert-success mb-0 mt-5 text-center';
         }
 
         return (
             <div className="row">
             <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
-                <h1>Add A Shoe to Your Closet</h1>
+                <h1>Add A New Shoe</h1>
                 <form onSubmit={this.handleSubmit} id="create-shoe-form">
                 <div className="form-floating mb-3">
                     <input onChange={this.handleInputChange} value={this.state.manufacturer} 
@@ -111,7 +111,7 @@ class ShoeForm extends React.Component {
                     {this.state.bins.map(bin => {
                             return (
                                 <option key={bin.href} value={bin.href}>
-                                    Closet: {bin.closet_name}, Bin: {bin.bin_number}
+                                    Closet: {bin.closet_name}, Bin #{bin.bin_number}
                                 </option>
                             );
                         })}
@@ -119,10 +119,11 @@ class ShoeForm extends React.Component {
                 </div>
                 <button className="btn btn-info">Create</button>
                 </form>
-                <div className={successClassName} id="success-message">
+                <div className={createClassName} id="success-message">
                     You Added A Shoe to Your Closet!
                 </div>
             </div>
+            <img src="https://www.carlaehlers.com/images/work/sneakerheads/GIF3.gif" className="img-fluid img-thumbnail"></img>
             </div>
         </div>
         );
