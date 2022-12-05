@@ -64,7 +64,8 @@ function ShoesList() {
                     <img src={shoe.picture_url} className="" alt= "..." width="100" height="100"></img>
                     </td>
                     <td>{ shoe.bin }</td>
-                    <td><button variant="outline-danger" onClick={() => handleDelete(shoe.id)}>Delete</button></td>
+                    <td><button class="btn btn-secondary">Update</button></td>
+                    <td><button class="btn btn-danger" onClick={() => handleDelete(shoe.id)}>Delete</button></td>
                 </tr>
                 );
             })}
