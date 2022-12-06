@@ -76,6 +76,7 @@ class BinForm extends React.Component {
       <div className="container">
         <div className="row">
           <div className="offset-3 col-6">
+           <img src="https://cdn.dribbble.com/users/2258871/screenshots/4539724/shoebox_dribbble.gif" className="img-fluid img-thumbnail"></img>
             <div className="shadow p-4 mt-4">
               <h1>Create A New Bin</h1>
               <form onSubmit={this.handleSubmit} id="create-bin-form">
@@ -124,7 +125,6 @@ class BinForm extends React.Component {
                     You Added A Bin to Your Closet!
                 </div>
             </div>
-             <img src="https://cdn.dribbble.com/users/2258871/screenshots/4539724/shoebox_dribbble.gif" className="img-fluid img-thumbnail"></img>
           </div>
         </div>
       </div>

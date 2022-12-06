@@ -73,6 +73,7 @@ class HatsForm extends React.Component {
         return (
             <div className="row">
             <div className="offset-3 col-6">
+            <img src="https://i.pinimg.com/originals/94/91/7d/94917daca6ded297ddf51e4980a813f4.gif" className="img-fluid img-thumbnail"></img>
             <div className="shadow p-4 mt-4">
                 <h1>Add A Hat to Your Closet</h1>
                 <form onSubmit={this.handleSubmit} id="create-hat-form">

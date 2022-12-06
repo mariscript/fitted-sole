@@ -76,6 +76,7 @@ class LocationForm extends React.Component {
       <div className="container">
         <div className="row">
           <div className="offset-3 col-6">
+           <img src="https://media3.giphy.com/media/QYkeCyy7JyRpeh5lk4/giphy.gif?cid=ecf05e47frnu8f7prre6znbwvo3115hjsf5m2tnhp2s8x0mt&rid=giphy.gif&ct=g" className="img-fluid img-thumbnail"></img>
             <div className="shadow p-4 mt-4">
               <h1>Create A New Location</h1>
               <form onSubmit={this.handleSubmit} id="create-location-form">
