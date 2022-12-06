@@ -27,24 +27,25 @@ class HatsForm extends React.Component {
         delete data.locations;
         delete data.create;
 
-        const url = 'http://localhost:8090/api/hats/'
+        const hatUrl = 'http://localhost:8090/api/hats/'
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
         }
 
-        const response = await fetch(url, fetchConfig);
+        const response = await fetch(hatUrl, fetchConfig);
         if (response.ok) {
-            const newHat = await response.json();
+            const newHat = await response.json()
+            console.log(newHat)
             const cleared = {
-                fabric: "",
-                style_name: "",
-                color: "",
-                pic_url: "",
-                location: "",
+                fabric: '',
+                style_name: '',
+                color: '',
+                pic_url: '',
+                location: '',
                 create: true,
             };
             this.setState(cleared);

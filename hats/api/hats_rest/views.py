@@ -24,7 +24,6 @@ class HatsListEncoder(ModelEncoder):
         'style_name',
         'color',
         'pic_url',
-        'location',
     ]
 
     def get_extra_data(self, o):
@@ -94,7 +93,7 @@ def list_hats(request, location_vo_id=None):
 def show_hats(request, pk):
     if request.method == "GET":
         try:
-            hats = Hat.objects.get(id=pk)
+            hat = Hat.objects.get(id=pk)
             return JsonResponse(
                 {"hat": hat},
                 encoder=HatsDetailEncoder,
