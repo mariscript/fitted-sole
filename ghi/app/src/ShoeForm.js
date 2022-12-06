@@ -77,6 +77,7 @@ class ShoeForm extends React.Component {
         return (
             <div className="row">
             <div className="offset-3 col-6">
+             <img src="https://www.carlaehlers.com/images/work/sneakerheads/GIF3.gif" className="img-fluid img-thumbnail"></img>
             <div className="shadow p-4 mt-4">
                 <h1>Add A New Shoe</h1>
                 <form onSubmit={this.handleSubmit} id="create-shoe-form">
@@ -123,7 +124,6 @@ class ShoeForm extends React.Component {
                     You Added A Shoe to Your Closet!
                 </div>
             </div>
-            <img src="https://www.carlaehlers.com/images/work/sneakerheads/GIF3.gif" className="img-fluid img-thumbnail"></img>
             </div>
         </div>
         );
