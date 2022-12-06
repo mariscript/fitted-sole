@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import App from './App';
 import {useState} from 'react'
 
 
@@ -7,7 +6,7 @@ function HatsList() {
     const [hats, setHats] = useState([])
 
     const fetchHat = async () => {
-        const url = 'http://localhost:8080/api/hats/'
+        const url = 'http://localhost:8090/api/hats/'
         const res = await fetch(url)
         const hatsJSON = await res.json()
         setHats(hatsJSON.hats)
@@ -17,7 +16,7 @@ function HatsList() {
     }, [])
 
     function handleDelete(id) {
-        const url = `http://localhost:8080/api/hats/${id}/`
+        const url = `http://localhost:8090/api/hats/${id}/`
         const fetchConfig = {method: 'DELETE'}
         const response = fetch(url, fetchConfig)
         setHats(hats.filter(
@@ -25,7 +24,6 @@ function HatsList() {
                 return hat.id !== id;
             }
         ))
-        // find hat by id and remove from hats array
     }
 
 
@@ -68,13 +66,13 @@ function HatsList() {
                     <td>{ hat.location }</td>
                     <td><button variant="outline-danger" onClick={() => handleDelete(hat.id)}>Delete</button></td>
                 </tr>
-                );
+                )
             })}
             </tbody>
         </table>
         </div>
       </div>
-    );
+    )
 }
 
 export default HatsList;

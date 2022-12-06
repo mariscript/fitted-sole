@@ -27,7 +27,7 @@ class HatsForm extends React.Component {
         delete data.locations;
         delete data.create;
 
-        const url = 'http://localhost:8000/api/hats/'
+        const url = 'http://localhost:8090/api/hats/'
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),

@@ -27,9 +27,8 @@ class HatsListEncoder(ModelEncoder):
         'location',
     ]
 
-    encoders={
-            'location': LocationVOEncoder(),
-    }
+    def get_extra_data(self, o):
+        return {"bin": o.location.closet_name}
 
 class HatsDetailEncoder(ModelEncoder):
     model = Hat
@@ -37,12 +36,13 @@ class HatsDetailEncoder(ModelEncoder):
         'fabric',
         'style_name',
         'color',
+        'pic_url'
         'id',
         'location',
     ]
 
     encoders = {
-        'location' : LocationVOEncoder
+        'location': LocationVOEncoder(),
     }
 
 @require_http_methods(["GET"])
