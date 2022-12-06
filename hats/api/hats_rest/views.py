@@ -27,7 +27,7 @@ class HatsListEncoder(ModelEncoder):
     ]
 
     def get_extra_data(self, o):
-        return {"bin": o.location.closet_name}
+        return {"location": o.location.closet_name}
 
 class HatsDetailEncoder(ModelEncoder):
     model = Hat
@@ -35,7 +35,7 @@ class HatsDetailEncoder(ModelEncoder):
         'fabric',
         'style_name',
         'color',
-        'pic_url'
+        'pic_url',
         'id',
         'location',
     ]

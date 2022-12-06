@@ -61,10 +61,10 @@ function HatsList() {
                     <td>{ hat.style_name }</td>
                     <td>{ hat.color }</td>
                     <td>
-                    <img src={hat.pic_url} className="" alt= "..." width="100" height="100"></img>
+                    <img src={hat.pic_url} className="" alt= "picture of hat" width="100" height="100"></img>
                     </td>
                     <td>{ hat.location }</td>
-                    <td><button variant="outline-danger" onClick={() => handleDelete(hat.id)}>Delete</button></td>
+                    <td><button className="btn btn-danger" onClick={() => handleDelete(hat.id)}>Delete</button></td>
                 </tr>
                 )
             })}
