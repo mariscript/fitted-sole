@@ -71,14 +71,14 @@ class BinForm extends React.Component {
       createClassName = "alert alert-success mb-0 mt-5 text-center";
     }
     return (
-      <div className="container">
+      <div className="container" id="wardrobe">
         <div className="row">
           <div className="offset-3 col-6">
             <img
               src={require("./images/shoebox.gif")}
               className="img-fluid img-thumbnail"
             ></img>
-            <div className="shadow p-4 mt-4 text-center">
+            <div className="shadow p-4 mt-4 text-center" id="forms">
               <h1>Create A New Bin</h1>
               <form onSubmit={this.handleSubmit} id="create-bin-form">
                 <div className="form-floating mb-3">
@@ -121,7 +121,7 @@ class BinForm extends React.Component {
                   <label htmlFor="Bin Size">Bin Size</label>
                 </div>
                 <div className="text-center">
-                  <button className="btn btn-primary">Create</button>
+                  <button className="btn btn-secondary">Create</button>
                 </div>
               </form>
               <div className={createClassName} id="success-message">

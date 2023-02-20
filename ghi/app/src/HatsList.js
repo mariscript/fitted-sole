@@ -39,7 +39,7 @@ function HatsList() {
           The ultimate virtual resource for hat organization.
         </p>
         <div className="d-grid gap-4 d-sm-flex justify-content-sm-center">
-          <a href="/hats/new" className="btn btn-info btn-lg px-4 gap-3">
+          <a href="/hats/new" className="btn btn-primary btn-lg px-4 gap-3">
             Add New Hats to Your Closet
           </a>
         </div>
@@ -47,7 +47,7 @@ function HatsList() {
       <div className="container mt-5">
         <h2 className="text-center">Hat Collection</h2>
       </div>
-      <div className="row">
+      <div className="row" id="tables">
         <table className="table table-striped">
           <thead>
             <tr>

@@ -35,7 +35,7 @@ class LocationForm extends React.Component {
     const data = { ...this.state };
     data.closet_name = data.closetName;
     data.section_number = data.sectionNumber;
-    data.shelf_number= data.shelfNumber;
+    data.shelf_number = data.shelfNumber;
     delete data.closetName;
     delete data.sectionNumber;
     delete data.shelfNumber;
@@ -65,19 +65,20 @@ class LocationForm extends React.Component {
     }
   }
 
-
-
   render() {
-    let createClassName = 'alert alert-success d-none mb-0 text-center';
+    let createClassName = "alert alert-success d-none mb-0 text-center";
     if (this.state.create) {
-      createClassName = 'alert alert-success mb-0 mt-5 text-center'
+      createClassName = "alert alert-success mb-0 mt-5 text-center";
     }
     return (
-      <div className="container">
+      <div className="container" id="wardrobe">
         <div className="row">
-          <div className="offset-3 col-6">
-           <img src="https://media3.giphy.com/media/QYkeCyy7JyRpeh5lk4/giphy.gif?cid=ecf05e47frnu8f7prre6znbwvo3115hjsf5m2tnhp2s8x0mt&rid=giphy.gif&ct=g" className="img-fluid img-thumbnail"></img>
-            <div className="shadow p-4 mt-4">
+          <div className="offset-3 col-6 text-center">
+            <img
+              src="https://media3.giphy.com/media/QYkeCyy7JyRpeh5lk4/giphy.gif?cid=ecf05e47frnu8f7prre6znbwvo3115hjsf5m2tnhp2s8x0mt&rid=giphy.gif&ct=g"
+              className="img-fluid img-thumbnail "
+            ></img>
+            <div className="shadow p-4 mt-4" id="forms">
               <h1>Create A New Location</h1>
               <form onSubmit={this.handleSubmit} id="create-location-form">
                 <div className="form-floating mb-3">
@@ -119,11 +120,11 @@ class LocationForm extends React.Component {
                   />
                   <label htmlFor="Shelf Number">Shelf Number</label>
                 </div>
-                <button className="btn btn-primary">Create</button>
+                <button className="btn btn-secondary">Create</button>
               </form>
               <div className={createClassName} id="success-message">
-                    You Added A Location to Your Closet!
-                </div>
+                You Added A Location to Your Closet!
+              </div>
             </div>
           </div>
         </div>

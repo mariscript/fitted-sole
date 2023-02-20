@@ -69,13 +69,13 @@ class HatsForm extends React.Component {
     }
 
     return (
-      <div className="row">
+      <div className="row" id="items">
         <div className="offset-3 col-6 text-center">
           <img
             src="https://i.pinimg.com/originals/94/91/7d/94917daca6ded297ddf51e4980a813f4.gif"
             className="img-fluid img-thumbnail"
           ></img>
-          <div className="shadow p-4 mt-4 text-center">
+          <div className="shadow p-4 mt-4 text-center" id="forms">
             <h1>Add A Hat to Your Closet</h1>
             <form onSubmit={this.handleSubmit} id="create-hat-form">
               <div className="form-floating mb-3">
@@ -153,7 +153,7 @@ class HatsForm extends React.Component {
                   })}
                 </select>
               </div>
-              <button className="btn btn-info">Create</button>
+              <button className="btn btn-secondary">Create</button>
             </form>
             <div className={createClassName} id="success-message">
               You Added A Hat to Your Closet!

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mynerve&display=swap");
 
 body {
-  background: #999999;
+  background: #9d8170;
   margin: 0;
   color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, "Mynerve", "Segoe UI",
@@ -26,4 +26,48 @@ code {
 
 #navbar-brand {
   font-size: 30px;
+}
+
+#homepage-image {
+  border-radius: 5px;
+}
+
+#tables {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.table {
+  background-color: white;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #6f1919;
+  border-color: #6f1919;
+}
+
+.btn-primary:hover {
+  color: #ffffff;
+  background-color: #130000;
+  border-color: #130000;
+}
+
+#forms {
+  background-color: #7f3232;
+  border-radius: 10px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+#wardrobe {
+  margin-top: 20px;
+}
+
+#items {
+  margin-top: 20px;
 }

@@ -69,13 +69,13 @@ class ShoeForm extends React.Component {
     }
 
     return (
-      <div className="row">
+      <div className="row" id="items">
         <div className="offset-3 col-6 text-center">
           <img
             src="https://www.carlaehlers.com/images/work/sneakerheads/GIF3.gif"
             className="img-fluid img-thumbnail"
           ></img>
-          <div className="shadow p-4 mt-4">
+          <div className="shadow p-4 mt-4" id="forms">
             <h1>Add A New Shoe</h1>
             <form onSubmit={this.handleSubmit} id="create-shoe-form">
               <div className="form-floating mb-3">
@@ -151,7 +151,7 @@ class ShoeForm extends React.Component {
                   })}
                 </select>
               </div>
-              <button className="btn btn-info">Create</button>
+              <button className="btn btn-secondary">Create</button>
             </form>
             <div className={createClassName} id="success-message">
               You Added A Shoe to Your Closet!

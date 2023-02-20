@@ -39,7 +39,7 @@ function ShoesList() {
           Your go-to solution for virtual shoe organization.
         </p>
         <div className="d-grid gap-4 d-sm-flex justify-content-sm-center">
-          <a href="/shoes/new" className="btn btn-info btn-lg px-4 gap-3">
+          <a href="/shoes/new" className="btn btn-primary btn-lg px-4 gap-3">
             Add New Shoes to Your Closet
           </a>
         </div>
@@ -47,7 +47,7 @@ function ShoesList() {
       <div className="container mt-5">
         <h2 className="text-center">Shoe Collection</h2>
       </div>
-      <div className="row">
+      <div className="row" id="tables">
         <table className="table table-striped">
           <thead>
             <tr>

@@ -1,11 +1,12 @@
 function MainPage() {
   return (
-    <div className="px-4 py-5 my-5 text-center">
+    <div className="px-4 py-5 my-5 text-center" id="homepage">
       <img
         className="sm-image mb-3"
         src="https://ultranyc.com/wp-content/uploads/2020/03/giphy-56-1.gif"
         alt="wardrobe gif"
         width="600"
+        id="homepage-image"
       />
       <h1 className="display-5 fw-bold">Fitted Sole</h1>
       <div className="col-lg-6 mx-auto">
