@@ -7,7 +7,7 @@ class BinForm extends React.Component {
       closetName: "",
       binNumber: "",
       binSize: "",
-      create: false
+      create: false,
     };
     this.handleClosetNameChange = this.handleClosetNameChange.bind(this);
     this.handleBinNumberChange = this.handleBinNumberChange.bind(this);
@@ -35,7 +35,7 @@ class BinForm extends React.Component {
     const data = { ...this.state };
     data.closet_name = data.closetName;
     data.bin_number = data.binNumber;
-    data.bin_size= data.binSize;
+    data.bin_size = data.binSize;
     delete data.closetName;
     delete data.binNumber;
     delete data.binSize;
@@ -65,19 +65,20 @@ class BinForm extends React.Component {
     }
   }
 
-
-
   render() {
-    let createClassName = 'alert alert-success d-none mb-0 mt-5 text-center';
+    let createClassName = "alert alert-success d-none mb-0 mt-5 text-center";
     if (this.state.create) {
-        createClassName = 'alert alert-success mb-0 mt-5 text-center';
+      createClassName = "alert alert-success mb-0 mt-5 text-center";
     }
     return (
       <div className="container">
         <div className="row">
           <div className="offset-3 col-6">
-           <img src="https://cdn.dribbble.com/users/2258871/screenshots/4539724/shoebox_dribbble.gif" className="img-fluid img-thumbnail"></img>
-            <div className="shadow p-4 mt-4">
+            <img
+              src={require("./images/shoebox.gif")}
+              className="img-fluid img-thumbnail"
+            ></img>
+            <div className="shadow p-4 mt-4 text-center">
               <h1>Create A New Bin</h1>
               <form onSubmit={this.handleSubmit} id="create-bin-form">
                 <div className="form-floating mb-3">
@@ -119,11 +120,13 @@ class BinForm extends React.Component {
                   />
                   <label htmlFor="Bin Size">Bin Size</label>
                 </div>
-                <button className="btn btn-primary">Create</button>
+                <div className="text-center">
+                  <button className="btn btn-primary">Create</button>
+                </div>
               </form>
               <div className={createClassName} id="success-message">
-                    You Added A Bin to Your Closet!
-                </div>
+                You Added A Bin to Your Closet!
+              </div>
             </div>
           </div>
         </div>

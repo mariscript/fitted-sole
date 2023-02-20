@@ -2,7 +2,7 @@ function MainPage() {
   return (
     <div className="px-4 py-5 my-5 text-center">
       <img
-        className="sm-image"
+        className="sm-image mb-3"
         src="https://ultranyc.com/wp-content/uploads/2020/03/giphy-56-1.gif"
         alt="wardrobe gif"
         width="600"
