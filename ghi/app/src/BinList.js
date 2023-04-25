@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-function HatsList() {
-  const [hats, setHats] = useState([]);
+function BinList() {
+  const [bins, setBins] = useState([]);
 
-  const fetchHat = async () => {
+  const fetchBin = async () => {
     const url = "http://localhost:8090/api/hats/";
     const res = await fetch(url);
-    const hatsJSON = await res.json();
-    setHats(hatsJSON.hats);
+    const binsJSON = await res.json();
+    setBins(binsJSON.bins);
   };
   useEffect(() => {
     fetchHat();
@@ -55,7 +55,7 @@ function HatsList() {
               <th>Style Name</th>
               <th>Hat Color</th>
               <th>Hat Picture</th>
-              <th>Location</th>
+              <th>Locations</th>
             </tr>
           </thead>
           <tbody>
@@ -93,4 +93,4 @@ function HatsList() {
   );
 }
 
-export default HatsList;
+export default BinList;

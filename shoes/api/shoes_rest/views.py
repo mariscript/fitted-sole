@@ -121,3 +121,18 @@ def api_show_shoes(request, pk):
                 {"message":"Shoe does not exist"},
                 status=400,
                 )
+    # elif request.method == "PUT":
+    #     try:
+    #         shoe = Shoe.objects.get(id=pk)
+    #         data = json.loads(request.body)
+    #         serializer = ShoeSerializer(instance=shoe, data=data)
+    #         if serializer.is_valid():
+    #             serializer.save()
+    #             return JsonResponse(serializer.data)
+    #         else:
+    #             return JsonResponse(serializer.errors, status=400)
+    #     except Shoe.DoesNotExist:
+    #         return JsonResponse(
+    #             {"message":"Shoe does not exist"},
+    #             status=400,
+    #         )

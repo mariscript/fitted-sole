@@ -46,10 +46,6 @@ class HatsDetailEncoder(ModelEncoder):
 
 @require_http_methods(["GET"])
 def api_list_locationvo(request):
-    """
-    List the location value objects from the poller
-    """
-
     if request.method == "GET":
         locationvo = LocationVO.objects.all()
         return JsonResponse(

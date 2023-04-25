@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
+
+
 function ShoesList() {
   const [shoes, setShoes] = useState([]);
+
+
 
   const fetchShoes = async () => {
     const url = "http://localhost:8080/api/shoes/";
@@ -24,6 +28,35 @@ function ShoesList() {
       })
     );
   }
+
+//   function handleUpdate(id) {
+//   const url = `http://localhost:8080/api/shoes/${id}/`;
+//   const fetchConfig = {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(updatedShoe),
+//   };
+//   fetch(url, fetchConfig)
+//     .then((response) => response.json())
+//     .then((updatedShoe) => {
+//       setShoes((prevShoes) => {
+//         const index = prevShoes.findIndex((shoe) => shoe.id === id);
+//         if (index === -1) {
+//           return prevShoes;
+//         }
+//         const newShoes = [...prevShoes];
+//         newShoes[index] = updatedShoe;
+//         return newShoes;
+//       });
+//       // Redirect to shoe form
+//       history.push(`/shoes/${id}`);
+//     })
+//     .catch((error) => console.error(error));
+// }
+
+
 
   return (
     <div className="px-4 py-5 my-5 mt-0 text-center">
@@ -82,6 +115,14 @@ function ShoesList() {
                     >
                       Delete
                     </button>
+                  </td>
+                    <td>
+                    {/* <button
+                      className="btn btn-info"
+                      onClick={() => handleUpdate(shoe.id)}
+                    >
+                      Update
+                    </button> */}
                   </td>
                 </tr>
               );
